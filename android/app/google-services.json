@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1040894106127",
+    "project_id": "agritrust-c88c4",
+    "storage_bucket": "agritrust-c88c4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040894106127:android:6d868722b6b643bddc617a",
+        "android_client_info": {
+          "package_name": "com.mycompany.agritrust"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi7gaj42CNfn_1BrzwaVUWrHbyIi_ietU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
