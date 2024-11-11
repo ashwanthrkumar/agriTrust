@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
 import 'farmer_d_widget.dart' show FarmerDWidget;
@@ -12,12 +13,15 @@ class FarmerDModel extends FlutterFlowModel<FarmerDWidget> {
 
   String? page;
 
+  bool? isCropListed;
+
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in farmerD widget.
   int? countContracts;
   // Stores action output result for [Firestore Query - Query a collection] action in farmerD widget.
   int? completedCount;
+  List<CropsRecord>? listViewPreviousSnapshot;
   // Model for customNavBar component.
   late CustomNavBarModel customNavBarModel;
 

@@ -7,3 +7,16 @@ export '/pages/f_contracts/f_contracts_widget.dart' show FContractsWidget;
 export '/pages/add_crop/add_crop_widget.dart' show AddCropWidget;
 export '/pages/f_payment/f_payment_widget.dart' show FPaymentWidget;
 export '/pages/f_profile/f_profile_widget.dart' show FProfileWidget;
+export '/pages/b_contracts/b_contracts_widget.dart' show BContractsWidget;
+export '/pages/create_contract/create_contract_widget.dart'
+    show CreateContractWidget;
+export '/pages/b_payment/b_payment_widget.dart' show BPaymentWidget;
+export '/pages/b_profile/b_profile_widget.dart' show BProfileWidget;
+export '/pages/crop_details/crop_details_widget.dart' show CropDetailsWidget;
+export '/pages/edit_crop_details/edit_crop_details_widget.dart'
+    show EditCropDetailsWidget;
+export '/pages/f_contract_request/f_contract_request_widget.dart'
+    show FContractRequestWidget;
+export '/pages/contract_verification/contract_verification_widget.dart'
+    show ContractVerificationWidget;
+export '/pages/update_info/update_info_widget.dart' show UpdateInfoWidget;

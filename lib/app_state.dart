@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -36,5 +38,17 @@ class FFAppState extends ChangeNotifier {
   String get page => _page;
   set page(String value) {
     _page = value;
+  }
+
+  LatLng? _latlong;
+  LatLng? get latlong => _latlong;
+  set latlong(LatLng? value) {
+    _latlong = value;
+  }
+
+  bool _searchIsActive = false;
+  bool get searchIsActive => _searchIsActive;
+  set searchIsActive(bool value) {
+    _searchIsActive = value;
   }
 }

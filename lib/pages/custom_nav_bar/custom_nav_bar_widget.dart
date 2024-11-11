@@ -107,14 +107,18 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                 children: [
                   Icon(
                     Icons.description_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
+                    color: FFAppState().page == 'Contracts'
+                        ? FlutterFlowTheme.of(context).primary
+                        : FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
                   Text(
                     'Contracts',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FFAppState().page == 'Contracts'
+                              ? FlutterFlowTheme.of(context).primary
+                              : FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -134,23 +138,27 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 48.0,
-                    height: 48.0,
+                    width: 44.0,
+                    height: 44.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
+                      color: FFAppState().userType == 'Farmer'
+                          ? FlutterFlowTheme.of(context).primary
+                          : FlutterFlowTheme.of(context).primary,
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                     child: Icon(
                       Icons.add_rounded,
                       color: FlutterFlowTheme.of(context).info,
-                      size: 24.0,
+                      size: 18.0,
                     ),
                   ),
                   Text(
                     'Add Crop',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FFAppState().page == 'Addcrop'
+                              ? FlutterFlowTheme.of(context).primary
+                              : FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -171,14 +179,18 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                 children: [
                   Icon(
                     Icons.payments_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
+                    color: FFAppState().page == 'Payment'
+                        ? FlutterFlowTheme.of(context).primary
+                        : FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
                   Text(
                     'Payment',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FFAppState().page == 'Payment'
+                              ? FlutterFlowTheme.of(context).primary
+                              : FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -199,14 +211,18 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                 children: [
                   Icon(
                     Icons.person_rounded,
-                    color: FlutterFlowTheme.of(context).secondaryText,
+                    color: FFAppState().page == 'Profile'
+                        ? FlutterFlowTheme.of(context).primary
+                        : FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
                   Text(
                     'Profile',
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FFAppState().page == 'Profile'
+                              ? FlutterFlowTheme.of(context).primary
+                              : FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
                         ),
                   ),

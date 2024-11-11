@@ -776,19 +776,10 @@ class _StartPageWidgetState extends State<StartPageWidget>
                                                                       ?.userType,
                                                                   '');
                                                           safeSetState(() {});
-                                                          if (FFAppState()
-                                                                  .userType ==
-                                                              'Farmer') {
-                                                            context.pushNamedAuth(
-                                                                'farmerD',
-                                                                context
-                                                                    .mounted);
-                                                          } else {
-                                                            context.pushNamedAuth(
-                                                                'buyerD',
-                                                                context
-                                                                    .mounted);
-                                                          }
+
+                                                          context.pushNamedAuth(
+                                                              'updateInfo',
+                                                              context.mounted);
                                                         },
                                                         text: 'Get Started',
                                                         options:
@@ -1034,6 +1025,8 @@ class _StartPageWidgetState extends State<StartPageWidget>
                                                         autofillHints: const [
                                                           AutofillHints.password
                                                         ],
+                                                        textInputAction:
+                                                            TextInputAction.go,
                                                         obscureText: !_model
                                                             .passwordVisibility,
                                                         decoration:
@@ -1208,6 +1201,15 @@ class _StartPageWidgetState extends State<StartPageWidget>
                                                                 context
                                                                     .mounted);
                                                           }
+
+                                                          safeSetState(() {
+                                                            _model
+                                                                .emailAddressTextController
+                                                                ?.clear();
+                                                            _model
+                                                                .passwordTextController
+                                                                ?.clear();
+                                                          });
                                                         },
                                                         text: 'Sign In',
                                                         options:
