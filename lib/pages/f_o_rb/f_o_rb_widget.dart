@@ -74,7 +74,12 @@ class _FORbWidgetState extends State<FORbWidget> {
                         'Farmer') {
                       context.pushNamed('farmerD');
                     } else {
-                      context.pushNamed('buyerD');
+                      if (valueOrDefault(currentUserDocument?.userType, '') ==
+                          'Buyer') {
+                        context.pushNamed('buyerD');
+                      } else {
+                        context.pushNamed('startPage');
+                      }
                     }
 
                     FFAppState().userId = currentUserUid;

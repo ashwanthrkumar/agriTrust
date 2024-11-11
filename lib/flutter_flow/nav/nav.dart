@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+
 
 import '/auth/base_auth_user_provider.dart';
 
@@ -119,6 +121,81 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'fProfile',
           path: '/fProfile',
           builder: (context, params) => const FProfileWidget(),
+        ),
+        FFRoute(
+          name: 'bContracts',
+          path: '/bContracts',
+          builder: (context, params) => const BContractsWidget(),
+        ),
+        FFRoute(
+          name: 'createContract',
+          path: '/createContract',
+          builder: (context, params) => CreateContractWidget(
+            createContractCropRef: params.getParam(
+              'createContractCropRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['crops'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'bPayment',
+          path: '/bPayment',
+          builder: (context, params) => const BPaymentWidget(),
+        ),
+        FFRoute(
+          name: 'bProfile',
+          path: '/bProfile',
+          builder: (context, params) => const BProfileWidget(),
+        ),
+        FFRoute(
+          name: 'cropDetails',
+          path: '/cropDetails',
+          builder: (context, params) => CropDetailsWidget(
+            cropDetailRef: params.getParam(
+              'cropDetailRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['crops'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'editCropDetails',
+          path: '/editCropDetails',
+          builder: (context, params) => EditCropDetailsWidget(
+            editCropDetailsRef: params.getParam(
+              'editCropDetailsRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['crops'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'fContractRequest',
+          path: '/fContractRequest',
+          builder: (context, params) => const FContractRequestWidget(),
+        ),
+        FFRoute(
+          name: 'contractVerification',
+          path: '/contractVerification',
+          builder: (context, params) => ContractVerificationWidget(
+            farmerId: params.getParam(
+              'farmerId',
+              ParamType.String,
+            ),
+            cropType: params.getParam(
+              'cropType',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'updateInfo',
+          path: '/updateInfo',
+          builder: (context, params) => const UpdateInfoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -307,10 +384,9 @@ class FFRoute {
                   child: SizedBox(
                     width: 50.0,
                     height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
+                    child: SpinKitSquareCircle(
+                      color: FlutterFlowTheme.of(context).primary,
+                      size: 50.0,
                     ),
                   ),
                 )

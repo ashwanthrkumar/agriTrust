@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -34,11 +35,6 @@ class ContractsRecord extends FirestoreRecord {
   int? _quantity;
   int get quantity => _quantity ?? 0;
   bool hasQuantity() => _quantity != null;
-
-  // "pricePerUnit" field.
-  double? _pricePerUnit;
-  double get pricePerUnit => _pricePerUnit ?? 0.0;
-  bool hasPricePerUnit() => _pricePerUnit != null;
 
   // "totalPrice" field.
   double? _totalPrice;
@@ -90,27 +86,51 @@ class ContractsRecord extends FirestoreRecord {
   String get confidentialityClause => _confidentialityClause ?? '';
   bool hasConfidentialityClause() => _confidentialityClause != null;
 
-  // "signedByFarmer" field.
-  bool? _signedByFarmer;
-  bool get signedByFarmer => _signedByFarmer ?? false;
-  bool hasSignedByFarmer() => _signedByFarmer != null;
-
-  // "signedByBuyer" field.
-  bool? _signedByBuyer;
-  bool get signedByBuyer => _signedByBuyer ?? false;
-  bool hasSignedByBuyer() => _signedByBuyer != null;
-
   // "notes" field.
   String? _notes;
   String get notes => _notes ?? '';
   bool hasNotes() => _notes != null;
+
+  // "pricePerUnit" field.
+  int? _pricePerUnit;
+  int get pricePerUnit => _pricePerUnit ?? 0;
+  bool hasPricePerUnit() => _pricePerUnit != null;
+
+  // "farmerSign" field.
+  Sign? _farmerSign;
+  Sign? get farmerSign => _farmerSign;
+  bool hasFarmerSign() => _farmerSign != null;
+
+  // "buyerSign" field.
+  Sign? _buyerSign;
+  Sign? get buyerSign => _buyerSign;
+  bool hasBuyerSign() => _buyerSign != null;
+
+  // "farmerName" field.
+  String? _farmerName;
+  String get farmerName => _farmerName ?? '';
+  bool hasFarmerName() => _farmerName != null;
+
+  // "buyerName" field.
+  String? _buyerName;
+  String get buyerName => _buyerName ?? '';
+  bool hasBuyerName() => _buyerName != null;
+
+  // "farmerAddress" field.
+  String? _farmerAddress;
+  String get farmerAddress => _farmerAddress ?? '';
+  bool hasFarmerAddress() => _farmerAddress != null;
+
+  // "buyerAddress" field.
+  String? _buyerAddress;
+  String get buyerAddress => _buyerAddress ?? '';
+  bool hasBuyerAddress() => _buyerAddress != null;
 
   void _initializeFields() {
     _farmerId = snapshotData['farmerId'] as String?;
     _buyerId = snapshotData['buyerId'] as String?;
     _cropType = snapshotData['cropType'] as String?;
     _quantity = castToType<int>(snapshotData['quantity']);
-    _pricePerUnit = castToType<double>(snapshotData['pricePerUnit']);
     _totalPrice = castToType<double>(snapshotData['totalPrice']);
     _deliveryDate = snapshotData['deliveryDate'] as DateTime?;
     _paymentTerms = snapshotData['paymentTerms'] as String?;
@@ -121,9 +141,14 @@ class ContractsRecord extends FirestoreRecord {
     _disputeResolution = snapshotData['disputeResolution'] as String?;
     _forceMajeureClause = snapshotData['forceMajeureClause'] as String?;
     _confidentialityClause = snapshotData['confidentialityClause'] as String?;
-    _signedByFarmer = snapshotData['signedByFarmer'] as bool?;
-    _signedByBuyer = snapshotData['signedByBuyer'] as bool?;
     _notes = snapshotData['notes'] as String?;
+    _pricePerUnit = castToType<int>(snapshotData['pricePerUnit']);
+    _farmerSign = deserializeEnum<Sign>(snapshotData['farmerSign']);
+    _buyerSign = deserializeEnum<Sign>(snapshotData['buyerSign']);
+    _farmerName = snapshotData['farmerName'] as String?;
+    _buyerName = snapshotData['buyerName'] as String?;
+    _farmerAddress = snapshotData['farmerAddress'] as String?;
+    _buyerAddress = snapshotData['buyerAddress'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -165,7 +190,6 @@ Map<String, dynamic> createContractsRecordData({
   String? buyerId,
   String? cropType,
   int? quantity,
-  double? pricePerUnit,
   double? totalPrice,
   DateTime? deliveryDate,
   String? paymentTerms,
@@ -176,9 +200,14 @@ Map<String, dynamic> createContractsRecordData({
   String? disputeResolution,
   String? forceMajeureClause,
   String? confidentialityClause,
-  bool? signedByFarmer,
-  bool? signedByBuyer,
   String? notes,
+  int? pricePerUnit,
+  Sign? farmerSign,
+  Sign? buyerSign,
+  String? farmerName,
+  String? buyerName,
+  String? farmerAddress,
+  String? buyerAddress,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -186,7 +215,6 @@ Map<String, dynamic> createContractsRecordData({
       'buyerId': buyerId,
       'cropType': cropType,
       'quantity': quantity,
-      'pricePerUnit': pricePerUnit,
       'totalPrice': totalPrice,
       'deliveryDate': deliveryDate,
       'paymentTerms': paymentTerms,
@@ -197,9 +225,14 @@ Map<String, dynamic> createContractsRecordData({
       'disputeResolution': disputeResolution,
       'forceMajeureClause': forceMajeureClause,
       'confidentialityClause': confidentialityClause,
-      'signedByFarmer': signedByFarmer,
-      'signedByBuyer': signedByBuyer,
       'notes': notes,
+      'pricePerUnit': pricePerUnit,
+      'farmerSign': farmerSign,
+      'buyerSign': buyerSign,
+      'farmerName': farmerName,
+      'buyerName': buyerName,
+      'farmerAddress': farmerAddress,
+      'buyerAddress': buyerAddress,
     }.withoutNulls,
   );
 
@@ -215,7 +248,6 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e1?.buyerId == e2?.buyerId &&
         e1?.cropType == e2?.cropType &&
         e1?.quantity == e2?.quantity &&
-        e1?.pricePerUnit == e2?.pricePerUnit &&
         e1?.totalPrice == e2?.totalPrice &&
         e1?.deliveryDate == e2?.deliveryDate &&
         e1?.paymentTerms == e2?.paymentTerms &&
@@ -226,9 +258,14 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e1?.disputeResolution == e2?.disputeResolution &&
         e1?.forceMajeureClause == e2?.forceMajeureClause &&
         e1?.confidentialityClause == e2?.confidentialityClause &&
-        e1?.signedByFarmer == e2?.signedByFarmer &&
-        e1?.signedByBuyer == e2?.signedByBuyer &&
-        e1?.notes == e2?.notes;
+        e1?.notes == e2?.notes &&
+        e1?.pricePerUnit == e2?.pricePerUnit &&
+        e1?.farmerSign == e2?.farmerSign &&
+        e1?.buyerSign == e2?.buyerSign &&
+        e1?.farmerName == e2?.farmerName &&
+        e1?.buyerName == e2?.buyerName &&
+        e1?.farmerAddress == e2?.farmerAddress &&
+        e1?.buyerAddress == e2?.buyerAddress;
   }
 
   @override
@@ -237,7 +274,6 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e?.buyerId,
         e?.cropType,
         e?.quantity,
-        e?.pricePerUnit,
         e?.totalPrice,
         e?.deliveryDate,
         e?.paymentTerms,
@@ -248,9 +284,14 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e?.disputeResolution,
         e?.forceMajeureClause,
         e?.confidentialityClause,
-        e?.signedByFarmer,
-        e?.signedByBuyer,
-        e?.notes
+        e?.notes,
+        e?.pricePerUnit,
+        e?.farmerSign,
+        e?.buyerSign,
+        e?.farmerName,
+        e?.buyerName,
+        e?.farmerAddress,
+        e?.buyerAddress
       ]);
 
   @override

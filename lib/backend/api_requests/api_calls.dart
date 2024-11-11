@@ -66,6 +66,55 @@ class ProtectedRouteCall {
   }
 }
 
+class GenerateContractPDFCall {
+  static Future<ApiCallResponse> call({
+    String? farmerName = '',
+    String? buyerName = '',
+    String? updatedAt = '',
+    String? cropType = '',
+    int? quantity,
+    double? totalPrice,
+    String? createdAt = '',
+    double? pricePerUnit,
+    String? paymentTerms = '',
+    String? qualityStandards = '',
+    String? deliveryDate = '',
+    String? notes = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "farmerName": "$farmerName",
+  "buyerName": "$buyerName",
+  "updatedAt": "$updatedAt",
+  "cropType": "$cropType",
+  "quantity": "$quantity",
+  "totalPrice": "$totalPrice",
+  "createdAt": "$createdAt",
+  "pricePerUnit": "$pricePerUnit",
+  "paymentTerms": "$paymentTerms",
+  "qualityStandards": "$qualityStandards",
+  "deliveryDate": "$deliveryDate",
+  "notes": "$notes"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'generateContractPDF',
+      apiUrl:
+          'https://us-central1-agritrust-c88c4.cloudfunctions.net/generateContractPDF',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
