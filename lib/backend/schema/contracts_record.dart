@@ -126,6 +126,26 @@ class ContractsRecord extends FirestoreRecord {
   String get buyerAddress => _buyerAddress ?? '';
   bool hasBuyerAddress() => _buyerAddress != null;
 
+  // "paymentDone" field.
+  bool? _paymentDone;
+  bool get paymentDone => _paymentDone ?? false;
+  bool hasPaymentDone() => _paymentDone != null;
+
+  // "cropImage" field.
+  String? _cropImage;
+  String get cropImage => _cropImage ?? '';
+  bool hasCropImage() => _cropImage != null;
+
+  // "farmerNumber" field.
+  String? _farmerNumber;
+  String get farmerNumber => _farmerNumber ?? '';
+  bool hasFarmerNumber() => _farmerNumber != null;
+
+  // "buyerNumber" field.
+  String? _buyerNumber;
+  String get buyerNumber => _buyerNumber ?? '';
+  bool hasBuyerNumber() => _buyerNumber != null;
+
   void _initializeFields() {
     _farmerId = snapshotData['farmerId'] as String?;
     _buyerId = snapshotData['buyerId'] as String?;
@@ -153,6 +173,10 @@ class ContractsRecord extends FirestoreRecord {
     _buyerName = snapshotData['buyerName'] as String?;
     _farmerAddress = snapshotData['farmerAddress'] as String?;
     _buyerAddress = snapshotData['buyerAddress'] as String?;
+    _paymentDone = snapshotData['paymentDone'] as bool?;
+    _cropImage = snapshotData['cropImage'] as String?;
+    _farmerNumber = snapshotData['farmerNumber'] as String?;
+    _buyerNumber = snapshotData['buyerNumber'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -212,6 +236,10 @@ Map<String, dynamic> createContractsRecordData({
   String? buyerName,
   String? farmerAddress,
   String? buyerAddress,
+  bool? paymentDone,
+  String? cropImage,
+  String? farmerNumber,
+  String? buyerNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -237,6 +265,10 @@ Map<String, dynamic> createContractsRecordData({
       'buyerName': buyerName,
       'farmerAddress': farmerAddress,
       'buyerAddress': buyerAddress,
+      'paymentDone': paymentDone,
+      'cropImage': cropImage,
+      'farmerNumber': farmerNumber,
+      'buyerNumber': buyerNumber,
     }.withoutNulls,
   );
 
@@ -269,7 +301,11 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e1?.farmerName == e2?.farmerName &&
         e1?.buyerName == e2?.buyerName &&
         e1?.farmerAddress == e2?.farmerAddress &&
-        e1?.buyerAddress == e2?.buyerAddress;
+        e1?.buyerAddress == e2?.buyerAddress &&
+        e1?.paymentDone == e2?.paymentDone &&
+        e1?.cropImage == e2?.cropImage &&
+        e1?.farmerNumber == e2?.farmerNumber &&
+        e1?.buyerNumber == e2?.buyerNumber;
   }
 
   @override
@@ -295,7 +331,11 @@ class ContractsRecordDocumentEquality implements Equality<ContractsRecord> {
         e?.farmerName,
         e?.buyerName,
         e?.farmerAddress,
-        e?.buyerAddress
+        e?.buyerAddress,
+        e?.paymentDone,
+        e?.cropImage,
+        e?.farmerNumber,
+        e?.buyerNumber
       ]);
 
   @override

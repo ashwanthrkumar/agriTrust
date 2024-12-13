@@ -80,6 +80,11 @@ class CropsRecord extends FirestoreRecord {
   String get farmerName => _farmerName ?? '';
   bool hasFarmerName() => _farmerName != null;
 
+  // "farmerNumber" field.
+  String? _farmerNumber;
+  String get farmerNumber => _farmerNumber ?? '';
+  bool hasFarmerNumber() => _farmerNumber != null;
+
   void _initializeFields() {
     _farmerId = snapshotData['farmerId'] as String?;
     _cropType = snapshotData['cropType'] as String?;
@@ -94,6 +99,7 @@ class CropsRecord extends FirestoreRecord {
     _updatedAt = snapshotData['updatedAt'] as DateTime?;
     _images = snapshotData['images'] as String?;
     _farmerName = snapshotData['farmerName'] as String?;
+    _farmerNumber = snapshotData['farmerNumber'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -143,6 +149,7 @@ Map<String, dynamic> createCropsRecordData({
   DateTime? updatedAt,
   String? images,
   String? farmerName,
+  String? farmerNumber,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -159,6 +166,7 @@ Map<String, dynamic> createCropsRecordData({
       'updatedAt': updatedAt,
       'images': images,
       'farmerName': farmerName,
+      'farmerNumber': farmerNumber,
     }.withoutNulls,
   );
 
@@ -182,7 +190,8 @@ class CropsRecordDocumentEquality implements Equality<CropsRecord> {
         e1?.createdAt == e2?.createdAt &&
         e1?.updatedAt == e2?.updatedAt &&
         e1?.images == e2?.images &&
-        e1?.farmerName == e2?.farmerName;
+        e1?.farmerName == e2?.farmerName &&
+        e1?.farmerNumber == e2?.farmerNumber;
   }
 
   @override
@@ -199,7 +208,8 @@ class CropsRecordDocumentEquality implements Equality<CropsRecord> {
         e?.createdAt,
         e?.updatedAt,
         e?.images,
-        e?.farmerName
+        e?.farmerName,
+        e?.farmerNumber
       ]);
 
   @override

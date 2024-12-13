@@ -682,6 +682,7 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                   _model.descriptionTextController.text,
                               images: _model.uploadedFileUrl,
                               farmerName: currentUserDisplayName,
+                              farmerNumber: currentPhoneNumber,
                             ));
                             _model.addCrops = CropsRecord.getDocumentFromData(
                                 createCropsRecordData(
@@ -698,6 +699,7 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                       _model.descriptionTextController.text,
                                   images: _model.uploadedFileUrl,
                                   farmerName: currentUserDisplayName,
+                                  farmerNumber: currentPhoneNumber,
                                 ),
                                 cropsRecordReference);
                             await showModalBottomSheet(

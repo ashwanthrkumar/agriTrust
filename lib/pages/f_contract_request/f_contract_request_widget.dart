@@ -10,6 +10,7 @@ import '/pages/no_contract_found/no_contract_found_widget.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'f_contract_request_model.dart';
 export 'f_contract_request_model.dart';
 
@@ -329,22 +330,17 @@ class _FContractRequestWidgetState extends State<FContractRequestWidget> {
                                                     ),
                                                     FFButtonWidget(
                                                       onPressed: () async {
-                                                        context.pushNamed(
-                                                          'fchats',
-                                                          queryParameters: {
-                                                            'buyerId':
-                                                                serializeParam(
+                                                        await launchUrl(Uri(
+                                                          scheme: 'tel',
+                                                          path:
                                                               listViewContractsRecord
-                                                                  .buyerId,
-                                                              ParamType.String,
-                                                            ),
-                                                          }.withoutNulls,
-                                                        );
+                                                                  .buyerNumber,
+                                                        ));
                                                       },
                                                       text: FFLocalizations.of(
                                                               context)
                                                           .getText(
-                                                        '8ox86jbn' /* More Details */,
+                                                        '8ox86jbn' /* Contact */,
                                                       ),
                                                       options: FFButtonOptions(
                                                         height: 30.0,
@@ -626,6 +622,57 @@ class _FContractRequestWidgetState extends State<FContractRequestWidget> {
                         fontFamily: 'Lexend',
                         letterSpacing: 0.0,
                       ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(1.0, 1.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 90.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      await launchUrl(Uri(
+                        scheme: 'tel',
+                        path: '6364371531',
+                      ));
+                    },
+                    child: Container(
+                      width: 143.0,
+                      height: 38.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primary,
+                        borderRadius: BorderRadius.circular(24.0),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.call,
+                            color: FlutterFlowTheme.of(context).alternate,
+                            size: 18.0,
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              '6xy0me94' /* Legal consultation */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Lexend',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 10.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ].divide(const SizedBox(width: 5.0)),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

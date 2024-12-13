@@ -55,6 +55,11 @@ class UsersRecord extends FirestoreRecord {
   String get address => _address ?? '';
   bool hasAddress() => _address != null;
 
+  // "verified" field.
+  bool? _verified;
+  bool get verified => _verified ?? false;
+  bool hasVerified() => _verified != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -64,6 +69,7 @@ class UsersRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _userType = snapshotData['userType'] as String?;
     _address = snapshotData['address'] as String?;
+    _verified = snapshotData['verified'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -108,6 +114,7 @@ Map<String, dynamic> createUsersRecordData({
   String? phoneNumber,
   String? userType,
   String? address,
+  bool? verified,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -119,6 +126,7 @@ Map<String, dynamic> createUsersRecordData({
       'phone_number': phoneNumber,
       'userType': userType,
       'address': address,
+      'verified': verified,
     }.withoutNulls,
   );
 
@@ -137,7 +145,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.userType == e2?.userType &&
-        e1?.address == e2?.address;
+        e1?.address == e2?.address &&
+        e1?.verified == e2?.verified;
   }
 
   @override
@@ -149,7 +158,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.userType,
-        e?.address
+        e?.address,
+        e?.verified
       ]);
 
   @override

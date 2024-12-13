@@ -146,9 +146,7 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                     width: 44.0,
                     height: 44.0,
                     decoration: BoxDecoration(
-                      color: FFAppState().userType == 'Farmer'
-                          ? FlutterFlowTheme.of(context).primary
-                          : const Color(0xFF023961),
+                      color: FlutterFlowTheme.of(context).secondary,
                       borderRadius: BorderRadius.circular(24.0),
                     ),
                     child: Icon(
@@ -213,7 +211,7 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('bprofile');
+                context.pushNamed('bpro');
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,

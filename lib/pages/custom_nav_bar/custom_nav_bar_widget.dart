@@ -211,7 +211,7 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('fProfile');
+                context.pushNamed('fpro');
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,

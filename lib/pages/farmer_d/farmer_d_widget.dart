@@ -60,6 +60,9 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
       );
       _model.completedContractsCount = _model.completedCount;
       safeSetState(() {});
+      if (valueOrDefault<bool>(currentUserDocument?.verified, false) == false) {
+        context.pushNamed('aadharPage');
+      }
     });
   }
 

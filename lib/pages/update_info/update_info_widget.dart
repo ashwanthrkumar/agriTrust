@@ -454,7 +454,11 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                               .update(createUsersRecordData(
                             phoneNumber: _model.phnoTextController.text,
                             address: _model.addressTextController.text,
+                            verified: false,
                           ));
+
+                          context.pushNamed('aadharPage');
+
                           if (valueOrDefault(
                                   currentUserDocument?.userType, '') ==
                               'Farmer') {

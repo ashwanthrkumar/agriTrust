@@ -151,6 +151,13 @@ final parametersBuilderMap =
   'bNotifications': ParameterData.none(),
   'fpro': ParameterData.none(),
   'aadharPage': ParameterData.none(),
+  'bpro': ParameterData.none(),
+  'otpPage': ParameterData.none(),
+  'bUpi': (data) async => ParameterData(
+        allParams: {
+          'upi': getParameter<DocumentReference>(data, 'upi'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

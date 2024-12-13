@@ -6,31 +6,31 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
+import '/pages/custom_nav_bar_b/custom_nav_bar_b_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
-import 'fpro_model.dart';
-export 'fpro_model.dart';
+import 'bpro_model.dart';
+export 'bpro_model.dart';
 
-class FproWidget extends StatefulWidget {
-  const FproWidget({super.key});
+class BproWidget extends StatefulWidget {
+  const BproWidget({super.key});
 
   @override
-  State<FproWidget> createState() => _FproWidgetState();
+  State<BproWidget> createState() => _BproWidgetState();
 }
 
-class _FproWidgetState extends State<FproWidget> {
-  late FproModel _model;
+class _BproWidgetState extends State<BproWidget> {
+  late BproModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FproModel());
+    _model = createModel(context, () => BproModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -85,13 +85,13 @@ class _FproWidgetState extends State<FproWidget> {
             ),
           );
         }
-        List<UsersRecord> fproUsersRecordList = snapshot.data!;
+        List<UsersRecord> bproUsersRecordList = snapshot.data!;
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
         }
-        final fproUsersRecord =
-            fproUsersRecordList.isNotEmpty ? fproUsersRecordList.first : null;
+        final bproUsersRecord =
+            bproUsersRecordList.isNotEmpty ? bproUsersRecordList.first : null;
 
         return GestureDetector(
           onTap: () {
@@ -152,11 +152,11 @@ class _FproWidgetState extends State<FproWidget> {
                                           borderRadius:
                                               BorderRadius.circular(60.0),
                                           child: Image.network(
-                                            fproUsersRecord?.photoUrl == null ||
-                                                    fproUsersRecord?.photoUrl ==
+                                            bproUsersRecord?.photoUrl == null ||
+                                                    bproUsersRecord?.photoUrl ==
                                                         ''
                                                 ? 'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-image-182145777.jpg'
-                                                : fproUsersRecord!.photoUrl,
+                                                : bproUsersRecord!.photoUrl,
                                             width: 120.0,
                                             height: 120.0,
                                             fit: BoxFit.cover,
@@ -178,7 +178,7 @@ class _FproWidgetState extends State<FproWidget> {
                                           height: 36.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .secondary,
                                             borderRadius:
                                                 BorderRadius.circular(18.0),
                                           ),
@@ -266,7 +266,7 @@ class _FproWidgetState extends State<FproWidget> {
                                                 }
                                               }
 
-                                              await fproUsersRecord!.reference
+                                              await bproUsersRecord!.reference
                                                   .update(createUsersRecordData(
                                                 photoUrl:
                                                     _model.uploadedFileUrl,
@@ -283,7 +283,7 @@ class _FproWidgetState extends State<FproWidget> {
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'y3pms6d1' /* Edit Profile */,
+                                  '1xoq0jal' /* Edit Profile */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
@@ -319,7 +319,7 @@ class _FproWidgetState extends State<FproWidget> {
                               TextFormField(
                                 controller: _model.textController1 ??=
                                     TextEditingController(
-                                  text: fproUsersRecord?.displayName,
+                                  text: bproUsersRecord?.displayName,
                                 ),
                                 focusNode: _model.textFieldFocusNode1,
                                 autofocus: false,
@@ -327,7 +327,7 @@ class _FproWidgetState extends State<FproWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    '0s74r48i' /* Full Name */,
+                                    '1mgvtyv7' /* Full Name */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -388,7 +388,7 @@ class _FproWidgetState extends State<FproWidget> {
                               TextFormField(
                                 controller: _model.textController2 ??=
                                     TextEditingController(
-                                  text: fproUsersRecord?.phoneNumber,
+                                  text: bproUsersRecord?.phoneNumber,
                                 ),
                                 focusNode: _model.textFieldFocusNode2,
                                 autofocus: false,
@@ -396,7 +396,7 @@ class _FproWidgetState extends State<FproWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'ntseyx7i' /* Phone Number */,
+                                    '8r5c5klb' /* Phone Number */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -458,7 +458,7 @@ class _FproWidgetState extends State<FproWidget> {
                               TextFormField(
                                 controller: _model.textController3 ??=
                                     TextEditingController(
-                                  text: fproUsersRecord?.email,
+                                  text: bproUsersRecord?.email,
                                 ),
                                 focusNode: _model.textFieldFocusNode3,
                                 autofocus: false,
@@ -466,7 +466,7 @@ class _FproWidgetState extends State<FproWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'c690h00m' /* Email Address */,
+                                    'iir6rmb5' /* Email Address */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -528,7 +528,7 @@ class _FproWidgetState extends State<FproWidget> {
                               TextFormField(
                                 controller: _model.textController4 ??=
                                     TextEditingController(
-                                  text: fproUsersRecord?.address,
+                                  text: bproUsersRecord?.address,
                                 ),
                                 focusNode: _model.textFieldFocusNode4,
                                 autofocus: false,
@@ -536,7 +536,7 @@ class _FproWidgetState extends State<FproWidget> {
                                 decoration: InputDecoration(
                                   labelText:
                                       FFLocalizations.of(context).getText(
-                                    'fiy57pa8' /* Address */,
+                                    '5ac0lh9g' /* Address */,
                                   ),
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -597,7 +597,7 @@ class _FproWidgetState extends State<FproWidget> {
                               ),
                               FFButtonWidget(
                                 onPressed: () async {
-                                  await fproUsersRecord!.reference
+                                  await bproUsersRecord!.reference
                                       .update(createUsersRecordData(
                                     email: _model.textController3.text,
                                     displayName: _model.textController1.text,
@@ -620,7 +620,7 @@ class _FproWidgetState extends State<FproWidget> {
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'j12yyk4c' /* Save Changes */,
+                                  'kt1qj464' /* Save Changes */,
                                 ),
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
@@ -629,7 +629,7 @@ class _FproWidgetState extends State<FproWidget> {
                                       0.0, 0.0, 0.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: FlutterFlowTheme.of(context).secondary,
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -646,39 +646,7 @@ class _FproWidgetState extends State<FproWidget> {
                           ),
                         ),
                       ),
-                      FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('aadharPage');
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'tuyigo9h' /* Aadhar Verification */,
-                        ),
-                        options: FFButtonOptions(
-                          height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Lexend',
-                                    color: Colors.white,
-                                    letterSpacing: 0.0,
-                                  ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
                     ],
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
-                  child: wrapWithModel(
-                    model: _model.customNavBarModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: const CustomNavBarWidget(),
                   ),
                 ),
                 if (_model.isActionStarted == true)
@@ -697,6 +665,14 @@ class _FproWidgetState extends State<FproWidget> {
                       animate: true,
                     ),
                   ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: wrapWithModel(
+                    model: _model.customNavBarBModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const CustomNavBarBWidget(),
+                  ),
+                ),
               ],
             ),
           ),

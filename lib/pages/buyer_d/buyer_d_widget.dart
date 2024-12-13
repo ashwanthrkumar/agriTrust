@@ -39,6 +39,8 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
       FFAppState().userType = valueOrDefault(currentUserDocument?.userType, '');
       FFAppState().searchIsActive = false;
       FFAppState().userId = currentUserUid;
+      FFAppState().verified =
+          valueOrDefault<bool>(currentUserDocument?.verified, false) == false;
       safeSetState(() {});
       _model.activeContracts = await queryContractsRecordCount(
         queryBuilder: (contractsRecord) => contractsRecord
@@ -53,6 +55,9 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
       );
       _model.activeContract = _model.activeContracts;
       safeSetState(() {});
+      if (valueOrDefault<bool>(currentUserDocument?.verified, false) == false) {
+        context.pushNamed('aadharPage');
+      }
     });
 
     _model.textController ??= TextEditingController();

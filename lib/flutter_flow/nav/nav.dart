@@ -223,6 +223,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'aadharPage',
           path: '/aadharPage',
           builder: (context, params) => const AadharPageWidget(),
+        ),
+        FFRoute(
+          name: 'bpro',
+          path: '/bpro',
+          builder: (context, params) => const BproWidget(),
+        ),
+        FFRoute(
+          name: 'otpPage',
+          path: '/otpPage',
+          builder: (context, params) => const OtpPageWidget(),
+        ),
+        FFRoute(
+          name: 'bUpi',
+          path: '/bUpi',
+          builder: (context, params) => BUpiWidget(
+            upi: params.getParam(
+              'upi',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['contracts'],
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

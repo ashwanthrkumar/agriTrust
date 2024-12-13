@@ -24,4 +24,7 @@ export '/pages/fchats/fchats_widget.dart' show FchatsWidget;
 export '/pages/b_notifications/b_notifications_widget.dart'
     show BNotificationsWidget;
 export '/pages/fpro/fpro_widget.dart' show FproWidget;
-export '/aadhar_page/aadhar_page_widget.dart' show AadharPageWidget;
+export '/pages/aadhar_page/aadhar_page_widget.dart' show AadharPageWidget;
+export '/pages/bpro/bpro_widget.dart' show BproWidget;
+export '/pages/otp_page/otp_page_widget.dart' show OtpPageWidget;
+export '/pages/b_upi/b_upi_widget.dart' show BUpiWidget;

@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'create_contract_model.dart';
 export 'create_contract_model.dart';
 
@@ -314,24 +315,31 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                             child: Align(
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: Text(
-                                                valueOrDefault<String>(
-                                                  dateTimeFormat(
-                                                    "MMMMEEEEd",
-                                                    _model.datePicked,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
+                                              child: Padding(
+                                                padding: const EdgeInsets.all(4.0),
+                                                child: Text(
+                                                  valueOrDefault<String>(
+                                                    dateTimeFormat(
+                                                      "MMMMEEEEd",
+                                                      _model.datePicked,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
+                                                    'Pick Date for Delivery',
                                                   ),
-                                                  'Pick Date for Delivery',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            const Color(0xFF797979),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
                                               ),
                                             ),
                                           ),
@@ -741,6 +749,12 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                             .farmerName,
                                         buyerAddress: valueOrDefault(
                                             currentUserDocument?.address, ''),
+                                        paymentDone: false,
+                                        cropImage:
+                                            createContractCropsRecord.images,
+                                        buyerNumber: currentPhoneNumber,
+                                        farmerNumber: createContractCropsRecord
+                                            .farmerNumber,
                                       ));
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -796,6 +810,66 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                       model: _model.customNavBarBModel,
                       updateCallback: () => safeSetState(() {}),
                       child: const CustomNavBarBWidget(),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(1.0, 1.0),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 90.0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await launchUrl(Uri(
+                            scheme: 'tel',
+                            path: '6364371531',
+                          ));
+                        },
+                        child: Container(
+                          width: 143.0,
+                          height: 38.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            borderRadius: BorderRadius.circular(24.0),
+                          ),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          child: Align(
+                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: const EdgeInsets.all(6.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.call,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 18.0,
+                                  ),
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '4s0zr7ou' /* Legal Consultation */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Lexend',
+                                          fontSize: 10.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ].divide(const SizedBox(width: 5.0)),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],

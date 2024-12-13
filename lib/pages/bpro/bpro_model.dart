@@ -1,29 +1,43 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'aadhar_page_widget.dart' show AadharPageWidget;
+import '/pages/custom_nav_bar_b/custom_nav_bar_b_widget.dart';
+import 'bpro_widget.dart' show BproWidget;
 import 'package:flutter/material.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
-class AadharPageModel extends FlutterFlowModel<AadharPageWidget> {
+class BproModel extends FlutterFlowModel<BproWidget> {
+  ///  Local state fields for this page.
+
+  bool? isActionStarted;
+
   ///  State fields for stateful widgets in this page.
+
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
-  final textFieldMask1 = MaskTextInputFormatter(mask: '####');
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
-  final textFieldMask2 = MaskTextInputFormatter(mask: '####');
   String? Function(BuildContext, String?)? textController2Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
-  final textFieldMask3 = MaskTextInputFormatter(mask: '####');
   String? Function(BuildContext, String?)? textController3Validator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode4;
+  TextEditingController? textController4;
+  String? Function(BuildContext, String?)? textController4Validator;
+  // Model for customNavBarB component.
+  late CustomNavBarBModel customNavBarBModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    customNavBarBModel = createModel(context, () => CustomNavBarBModel());
+  }
 
   @override
   void dispose() {
@@ -35,5 +49,10 @@ class AadharPageModel extends FlutterFlowModel<AadharPageWidget> {
 
     textFieldFocusNode3?.dispose();
     textController3?.dispose();
+
+    textFieldFocusNode4?.dispose();
+    textController4?.dispose();
+
+    customNavBarBModel.dispose();
   }
 }

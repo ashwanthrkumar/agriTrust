@@ -592,8 +592,36 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // fPayment
   {
-    'lmhkzu1s': {
+    'wmdwb4cw': {
       'en': 'Payments',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'q1uxrxeq': {
+      'en': 'Contract with:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'b5r0dhf4': {
+      'en': 'Crop Type:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'erkd9rda': {
+      'en': 'Not done',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'sglaaeeu': {
+      'en': 'Done',
       'hi': '',
       'kn': '',
       'ta': '',
@@ -762,6 +790,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
+    '4s0zr7ou': {
+      'en': 'Legal Consultation',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
     'u49xqdph': {
       'en': 'Home',
       'hi': '',
@@ -772,6 +807,55 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // bPayment
   {
+    'ualfuuln': {
+      'en': 'Payments',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'kl3wvhdd': {
+      'en': 'Crop Type:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '2qq0xk9d': {
+      'en': 'Amount to be paid:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'qu21fi1z': {
+      'en': 'Payment pending',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'kt3f68i6': {
+      'en': 'Payment Done',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'oswen55d': {
+      'en': 'Make Payment',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'kwgp2u01': {
+      'en': 'Payment done!!',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
     '1bin9l2x': {
       'en': 'Home',
       'hi': '',
@@ -922,7 +1006,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     '8ox86jbn': {
-      'en': 'More Details',
+      'en': 'Contact',
       'hi': '',
       'kn': '',
       'ta': '',
@@ -937,6 +1021,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x748ewfn': {
       'en': 'Contract Requests',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '6xy0me94': {
+      'en': 'Legal consultation',
       'hi': '',
       'kn': '',
       'ta': '',
@@ -1202,6 +1293,13 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
+    'tuyigo9h': {
+      'en': 'Aadhar Verification',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
   },
   // aadharPage
   {
@@ -1219,22 +1317,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'lo10f5hl': {
-      'en': '####',
-      'hi': '',
-      'kn': '',
-      'ta': '',
-      'te': '',
-    },
-    '8dz78mc7': {
-      'en': '####',
-      'hi': '',
-      'kn': '',
-      'ta': '',
-      'te': '',
-    },
-    '2k7k48s9': {
-      'en': '####',
+    'bstcddll': {
+      'en': '#### #### ####',
       'hi': '',
       'kn': '',
       'ta': '',
@@ -1247,7 +1331,163 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
+    '70ozluw4': {
+      'en': 'Aadhar Details',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '5vueoeuh': {
+      'en': 'Go back',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
     'cyfjikc7': {
+      'en': 'Home',
+      'hi': 'घर',
+      'kn': 'ಮುಖಪುಟ',
+      'ta': 'வீடு',
+      'te': 'హోమ్',
+    },
+  },
+  // bpro
+  {
+    '1xoq0jal': {
+      'en': 'Edit Profile',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '1mgvtyv7': {
+      'en': 'Full Name',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '8r5c5klb': {
+      'en': 'Phone Number',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'iir6rmb5': {
+      'en': 'Email Address',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '5ac0lh9g': {
+      'en': 'Address',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'kt1qj464': {
+      'en': 'Save Changes',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+  },
+  // otpPage
+  {
+    'x0wrfre9': {
+      'en': 'Verify OTP',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '8rggw4bu': {
+      'en': 'Enter the 6-digit code sent to your phone',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '6fps5nb7': {
+      'en': 'Enter OTP',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '2y1jn2eb': {
+      'en': 'Verify',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+  },
+  // bUpi
+  {
+    'zypdf0lg': {
+      'en': 'Payment Page',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'yzxbrwvu': {
+      'en': 'Buyer Name:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'v4cv0hlc': {
+      'en': 'paying to',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    '46x5zq5c': {
+      'en': 'Farmer Name:',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'z4x0rtf2': {
+      'en': 'Amount: ',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'iv3o3vu2': {
+      'en': 'UPI Payment',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'nkitduj1': {
+      'en': 'Enter PIN',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'cy4geca4': {
+      'en': 'Make Payment',
+      'hi': '',
+      'kn': '',
+      'ta': '',
+      'te': '',
+    },
+    'f696p0hc': {
       'en': 'Home',
       'hi': 'घर',
       'kn': 'ಮುಖಪುಟ',
