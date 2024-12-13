@@ -4,6 +4,7 @@ import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
 import 'package:flutter/material.dart';
@@ -64,7 +65,10 @@ class _FProfileWidgetState extends State<FProfileWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).tertiary,
@@ -80,7 +84,9 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                     Align(
                       alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Text(
-                        'Farmer Photo',
+                        FFLocalizations.of(context).getText(
+                          'czjmnj5x' /* Farmer Photo */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               letterSpacing: 0.0,
@@ -188,7 +194,9 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Name:',
+                            FFLocalizations.of(context).getText(
+                              'rqpbzx75' /* Name: */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -284,7 +292,9 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Email: ',
+                            FFLocalizations.of(context).getText(
+                              'sw8lesji' /* Email:  */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -376,7 +386,9 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Phno.',
+                            FFLocalizations.of(context).getText(
+                              '0fcm350x' /* Phno. */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -526,7 +538,9 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Text(
-                            'Address: ',
+                            FFLocalizations.of(context).getText(
+                              'wrbephju' /* Address:  */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -551,7 +565,10 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                                           fontFamily: 'Inter',
                                           letterSpacing: 0.0,
                                         ),
-                                    hintText: 'TextField',
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '5zinz0o6' /* TextField */,
+                                    ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -665,6 +682,30 @@ class _FProfileWidgetState extends State<FProfileWidget> {
                             },
                           ),
                         ].divide(const SizedBox(width: 20.0)),
+                      ),
+                    ),
+                    FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('aadharPage');
+                      },
+                      text: FFLocalizations.of(context).getText(
+                        'maloerki' /* aadhar */,
+                      ),
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Lexend',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
                   ],

@@ -66,7 +66,9 @@ class _NoCropFoundWidgetState extends State<NoCropFoundWidget> {
               size: 48.0,
             ),
             Text(
-              'No Crops Listed',
+              FFLocalizations.of(context).getText(
+                'qy3rfpt9' /* No Crops Listed */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Lexend',
@@ -74,7 +76,9 @@ class _NoCropFoundWidgetState extends State<NoCropFoundWidget> {
                   ),
             ),
             Text(
-              'You haven\'t added any crops to your listing yet. Start by adding your first crop!',
+              FFLocalizations.of(context).getText(
+                'xamljzet' /* You haven't added any crops to... */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: 'Inter',
@@ -86,7 +90,9 @@ class _NoCropFoundWidgetState extends State<NoCropFoundWidget> {
               onPressed: () async {
                 context.pushNamed('addCrop');
               },
-              text: 'Add Your First Crop',
+              text: FFLocalizations.of(context).getText(
+                '5vp1c2rf' /* Add Your First Crop */,
+              ),
               icon: Icon(
                 Icons.add_rounded,
                 color: FlutterFlowTheme.of(context).info,

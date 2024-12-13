@@ -54,7 +54,9 @@ class _NoContractFoundWidgetState extends State<NoContractFoundWidget> {
                 size: 48.0,
               ),
               Text(
-                'No Contract Found',
+                FFLocalizations.of(context).getText(
+                  'fstf6fmw' /* No Contract Found */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Lexend',
                       color: FlutterFlowTheme.of(context).primaryText,
@@ -62,7 +64,9 @@ class _NoContractFoundWidgetState extends State<NoContractFoundWidget> {
                     ),
               ),
               Text(
-                'We couldn\'t find any pending contracts associated with your account. Please check back later or contact support if you believe this is an error.',
+                FFLocalizations.of(context).getText(
+                  'wse4gxx3' /* We couldn't find any pending c... */,
+                ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).secondaryText,

@@ -1,12 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/crop_upload_success/crop_upload_success_widget.dart';
 import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
@@ -74,7 +72,10 @@ class _AddCropWidgetState extends State<AddCropWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: const Color(0xFFFFE8BF),
@@ -92,7 +93,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                         child: Text(
-                          'Add your crop here',
+                          FFLocalizations.of(context).getText(
+                            'idbk4jjz' /* Add your crop here */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).titleLarge.override(
                                     fontFamily: 'Lexend',
@@ -112,7 +115,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: true,
-                              labelText: 'Crop Type',
+                              labelText: FFLocalizations.of(context).getText(
+                                'dfazfdn5' /* Crop Type */,
+                              ),
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
@@ -190,7 +195,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: true,
-                                labelText: 'Quantity',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'sxnidllj' /* Quantity (in kgs) */,
+                                ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -269,7 +276,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: true,
-                                labelText: 'Price per Unit',
+                                labelText: FFLocalizations.of(context).getText(
+                                  'yumu333p' /* Price per Unit */,
+                                ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -361,7 +370,11 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                   child: Text(
                                     valueOrDefault<String>(
                                       dateTimeFormat(
-                                          "yMMMd", _model.datePicked),
+                                        "yMMMd",
+                                        _model.datePicked,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      ),
                                       'Available Date',
                                     ),
                                     style: FlutterFlowTheme.of(context)
@@ -397,7 +410,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                   });
                                 }
                               },
-                              text: 'Pick Date',
+                              text: FFLocalizations.of(context).getText(
+                                'ah7ihb63' /* Pick Date */,
+                              ),
                               options: FFButtonOptions(
                                 height: 40.0,
                                 padding: const EdgeInsetsDirectional.fromSTEB(
@@ -439,46 +454,6 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 0.0),
-                          child: FlutterFlowDropDown<String>(
-                            controller: _model.statusValueController ??=
-                                FormFieldController<String>(null),
-                            options: const ['Available', 'In Contract', 'Sold Out'],
-                            onChanged: (val) =>
-                                safeSetState(() => _model.statusValue = val),
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: 45.0,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
-                            hintText: 'Select...',
-                            icon: Icon(
-                              Icons.keyboard_arrow_down_rounded,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
-                            ),
-                            fillColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            elevation: 2.0,
-                            borderColor: const Color(0xFF585858),
-                            borderWidth: 1.0,
-                            borderRadius: 24.0,
-                            margin: const EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 12.0, 0.0),
-                            hidesUnderline: true,
-                            isOverButton: false,
-                            isSearchable: false,
-                            isMultiSelect: false,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 10.0, 0.0, 0.0),
                           child: SizedBox(
                             width: MediaQuery.sizeOf(context).width * 0.8,
                             child: TextFormField(
@@ -489,7 +464,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                               obscureText: false,
                               decoration: InputDecoration(
                                 isDense: true,
-                                labelText: 'Description',
+                                labelText: FFLocalizations.of(context).getText(
+                                  '8s9n1qyq' /* Description */,
+                                ),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -572,7 +549,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
-                                'Upload Image',
+                                FFLocalizations.of(context).getText(
+                                  'igge5ecw' /* Upload Image */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -698,7 +677,7 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                   _model.priceperunitTextController.text),
                               availabilityDate: _model.datePicked,
                               location: currentUserLocationValue,
-                              status: _model.statusValue,
+                              status: 'Available',
                               description:
                                   _model.descriptionTextController.text,
                               images: _model.uploadedFileUrl,
@@ -714,7 +693,7 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                                       _model.priceperunitTextController.text),
                                   availabilityDate: _model.datePicked,
                                   location: currentUserLocationValue,
-                                  status: _model.statusValue,
+                                  status: 'Available',
                                   description:
                                       _model.descriptionTextController.text,
                                   images: _model.uploadedFileUrl,
@@ -728,7 +707,11 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                               context: context,
                               builder: (context) {
                                 return GestureDetector(
-                                  onTap: () => FocusScope.of(context).unfocus(),
+                                  onTap: () {
+                                    FocusScope.of(context).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: const CropUploadSuccessWidget(),
@@ -744,9 +727,6 @@ class _AddCropWidgetState extends State<AddCropWidget> {
                               _model.descriptionTextController?.clear();
                             });
                             safeSetState(() {
-                              _model.statusValueController?.reset();
-                            });
-                            safeSetState(() {
                               _model.isDataUploading = false;
                               _model.uploadedLocalFile =
                                   FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -755,7 +735,9 @@ class _AddCropWidgetState extends State<AddCropWidget> {
 
                             safeSetState(() {});
                           },
-                          text: 'Add Crop',
+                          text: FFLocalizations.of(context).getText(
+                            'sqwpce2t' /* Add Crop */,
+                          ),
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.8,
                             height: 40.0,

@@ -88,7 +88,10 @@ class _ContractVerificationWidgetState
                 : null;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -120,7 +123,9 @@ class _ContractVerificationWidgetState
                             },
                           ),
                           Text(
-                            'Contract Verification',
+                            FFLocalizations.of(context).getText(
+                              '9joytobf' /* Contract Verification */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -153,7 +158,9 @@ class _ContractVerificationWidgetState
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'Please verify your identity',
+                                  FFLocalizations.of(context).getText(
+                                    'y4yg9z66' /* Please verify your identity */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -164,7 +171,9 @@ class _ContractVerificationWidgetState
                                       ),
                                 ),
                                 Text(
-                                  'To proceed with the contract verification, we need to confirm your identity. Please enter your full name as it appears on your official documents.',
+                                  FFLocalizations.of(context).getText(
+                                    'etp6gju8' /* To proceed with the contract v... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -180,7 +189,10 @@ class _ContractVerificationWidgetState
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelText: 'Full Name',
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      'j4y8bew7' /* Full Name */,
+                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -262,7 +274,9 @@ class _ContractVerificationWidgetState
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'Important Notice',
+                                  FFLocalizations.of(context).getText(
+                                    'jn0ov288' /* Important Notice */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -273,7 +287,9 @@ class _ContractVerificationWidgetState
                                       ),
                                 ),
                                 Text(
-                                  'By entering your name and proceeding, you acknowledge that:',
+                                  FFLocalizations.of(context).getText(
+                                    'c0lqq4b4' /* By entering your name and proc... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -299,7 +315,9 @@ class _ContractVerificationWidgetState
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'The information you provide is accurate and true to the best of your knowledge.',
+                                            FFLocalizations.of(context).getText(
+                                              'n00orla5' /* The information you provide is... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -326,7 +344,9 @@ class _ContractVerificationWidgetState
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'You are legally authorized to enter into this contract.',
+                                            FFLocalizations.of(context).getText(
+                                              'dh4e19ge' /* You are legally authorized to ... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -353,7 +373,9 @@ class _ContractVerificationWidgetState
                                         ),
                                         Expanded(
                                           child: Text(
-                                            'You understand that providing false information may result in legal consequences.',
+                                            FFLocalizations.of(context).getText(
+                                              'xx6r2tfm' /* You understand that providing ... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodySmall
                                                 .override(
@@ -379,6 +401,7 @@ class _ContractVerificationWidgetState
                           await contractVerificationCropsRecord!.reference
                               .update(createCropsRecordData(
                             status: 'In Contract',
+                            farmerName: _model.textController.text,
                           ));
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
@@ -397,7 +420,9 @@ class _ContractVerificationWidgetState
 
                           context.pushNamed('fContractRequest');
                         },
-                        text: 'Verify and Proceed',
+                        text: FFLocalizations.of(context).getText(
+                          '2c5j3iro' /* Verify and Proceed */,
+                        ),
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 56.0,
@@ -417,7 +442,9 @@ class _ContractVerificationWidgetState
                         ),
                       ),
                       Text(
-                        'If you have any questions or concerns about this process, please contact our support team.',
+                        FFLocalizations.of(context).getText(
+                          'gvsp8iai' /* If you have any questions or c... */,
+                        ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodySmall.override(
                               fontFamily: 'Inter',

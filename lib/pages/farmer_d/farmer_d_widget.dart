@@ -106,7 +106,10 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
         int farmerDCount = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: const Color(0xFFFFE8BF),
@@ -116,62 +119,64 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                 children: [
                   Container(
                     decoration: const BoxDecoration(),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 0.0, 20.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 0.0, 0.0),
-                                    child: Text(
-                                      'Hi!! ',
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 10.0, 0.0, 20.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      20.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'co3c7jpe' /* Hi!!  */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Birthstone',
+                                          color: Colors.black,
+                                          fontSize: 40.0,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => Text(
+                                      currentUserDisplayName,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Birthstone',
+                                            fontFamily: 'Lexend',
                                             color: Colors.black,
-                                            fontSize: 40.0,
+                                            fontSize: 23.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                              ),
+                              Expanded(
+                                child: Align(
+                                  alignment: const AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
+                                        0.0, 0.0, 20.0, 0.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => Text(
-                                        currentUserDisplayName,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Lexend',
-                                              color: Colors.black,
-                                              fontSize: 23.0,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Align(
-                                    alignment: const AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 20.0, 0.0),
-                                      child: InkWell(
+                                      builder: (context) => InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
                                         hoverColor: Colors.transparent,
@@ -184,9 +189,13 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                             context: context,
                                             builder: (context) {
                                               return GestureDetector(
-                                                onTap: () =>
-                                                    FocusScope.of(context)
-                                                        .unfocus(),
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
                                                 child: Padding(
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
@@ -203,22 +212,36 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                           height: 40.0,
                                           decoration: BoxDecoration(
                                             color: const Color(0xFF1A6C43),
+                                            image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: Image.network(
+                                                currentUserPhoto == ''
+                                                    ? 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtlMpIjR8W1bturIJnGWtLRayT4CfJPG34cw&s'
+                                                    : currentUserPhoto,
+                                              ).image,
+                                            ),
                                             borderRadius:
                                                 BorderRadius.circular(50.0),
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              'A',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleLarge
-                                                      .override(
-                                                        fontFamily: 'Lexend',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                          child: Visibility(
+                                            visible: currentUserPhoto == '',
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'iikynvbi' /* A */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily: 'Lexend',
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -226,17 +249,65 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 5.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              5.0, 0.0, 5.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: 180.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF1A6C43),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'fvoo0ls7' /* Ongoing Contracts */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Inter Tight',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          _model.ongoingContractsCount
+                                              ?.toString(),
+                                          '0',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: Container(
                                   width: 180.0,
                                   height: 100.0,
                                   decoration: BoxDecoration(
@@ -248,7 +319,10 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        'Ongoing Contracts',
+                                        FFLocalizations.of(context).getText(
+                                          'sw9r6mky' /* Completed Contracts */,
+                                        ),
+                                        textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -263,7 +337,7 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                             0.0, 10.0, 0.0, 0.0),
                                         child: Text(
                                           valueOrDefault<String>(
-                                            _model.ongoingContractsCount
+                                            _model.completedContractsCount
                                                 ?.toString(),
                                             '0',
                                           ),
@@ -279,76 +353,31 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                     ],
                                   ),
                                 ),
-                                Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
-                                    width: 180.0,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFF1A6C43),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Completed Contracts',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter Tight',
-                                                color: Colors.white,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w800,
-                                              ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 10.0, 0.0, 0.0),
-                                          child: Text(
-                                            valueOrDefault<String>(
-                                              _model.completedContractsCount
-                                                  ?.toString(),
-                                              '0',
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyLarge
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 20.0, 0.0, 0.0),
-                              child: Text(
-                                'CROP LISTING',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Lexend',
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w800,
-                                    ),
                               ),
+                            ],
+                          ),
+                        ),
+                        Align(
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                20.0, 20.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                '2hbxdut8' /* CROP LISTING */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Lexend',
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                             ),
                           ),
-                          Padding(
+                        ),
+                        Expanded(
+                          child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: StreamBuilder<List<CropsRecord>>(
@@ -399,7 +428,13 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                 }
 
                                 return ListView.builder(
-                                  padding: EdgeInsets.zero,
+                                  padding: const EdgeInsets.fromLTRB(
+                                    0,
+                                    0,
+                                    0,
+                                    90.0,
+                                  ),
+                                  primary: false,
                                   shrinkWrap: true,
                                   scrollDirection: Axis.vertical,
                                   itemCount: listViewCropsRecordList.length,
@@ -510,7 +545,10 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                                                   }.withoutNulls,
                                                 );
                                               },
-                                              text: 'edit',
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'wachdqxj' /* edit */,
+                                              ),
                                               options: FFButtonOptions(
                                                 height: 40.0,
                                                 padding: const EdgeInsetsDirectional
@@ -550,8 +588,8 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                               },
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                   Align(
@@ -569,7 +607,9 @@ class _FarmerDWidgetState extends State<FarmerDWidget> {
                         onPressed: () async {
                           context.pushNamed('fContractRequest');
                         },
-                        text: 'Contract Requests',
+                        text: FFLocalizations.of(context).getText(
+                          'pi49skwz' /* Contract Requests */,
+                        ),
                         options: FFButtonOptions(
                           height: 30.0,
                           padding: const EdgeInsetsDirectional.fromSTEB(

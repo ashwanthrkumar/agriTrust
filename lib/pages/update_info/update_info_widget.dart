@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
@@ -31,12 +32,20 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isActionStarted = false;
+      _model.phnoAdded = false;
+      _model.addressAdded = false;
+      _model.imgAdded = false;
       safeSetState(() {});
     });
 
     _model.phnoTextController ??= TextEditingController();
     _model.phnoFocusNode ??= FocusNode();
-
+    _model.phnoFocusNode!.addListener(
+      () async {
+        _model.phnoAdded = true;
+        safeSetState(() {});
+      },
+    );
     _model.addressTextController ??= TextEditingController();
     _model.addressFocusNode ??= FocusNode();
   }
@@ -51,7 +60,10 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -67,7 +79,9 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Complete Your Profile',
+                        FFLocalizations.of(context).getText(
+                          'qpgm2jd1' /* Complete Your Profile */,
+                        ),
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
@@ -78,7 +92,9 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                             ),
                       ),
                       Text(
-                        'Please provide the following information to set up your account.',
+                        FFLocalizations.of(context).getText(
+                          'y8afcwto' /* Please provide the following i... */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -105,7 +121,9 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Text(
-                                  'Profile Photo',
+                                  FFLocalizations.of(context).getText(
+                                    'dd6tpj24' /* Profile Photo */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleMedium
                                       .override(
@@ -229,6 +247,7 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                                                     _model.uploadedFileUrl,
                                               ));
                                               _model.isActionStarted = false;
+                                              _model.imgAdded = true;
                                               safeSetState(() {});
                                             },
                                             child: Container(
@@ -258,7 +277,11 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                                                       size: 40.0,
                                                     ),
                                                     Text(
-                                                      'Tap to upload',
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '471a5gzr' /* Tap to upload */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
                                                           .bodySmall
@@ -283,7 +306,10 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelText: 'Phone Number',
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      'z6t65y29' /* Phone Number */,
+                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -341,10 +367,21 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                                 TextFormField(
                                   controller: _model.addressTextController,
                                   focusNode: _model.addressFocusNode,
+                                  onChanged: (_) => EasyDebounce.debounce(
+                                    '_model.addressTextController',
+                                    const Duration(milliseconds: 2000),
+                                    () async {
+                                      _model.addressAdded = true;
+                                      safeSetState(() {});
+                                    },
+                                  ),
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
-                                    labelText: 'Address',
+                                    labelText:
+                                        FFLocalizations.of(context).getText(
+                                      'v4lp9e6t' /* Address */,
+                                    ),
                                     labelStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -407,6 +444,12 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                       ),
                       FFButtonWidget(
                         onPressed: () async {
+                          if (!(_model.phnoAdded! &&
+                              _model.addressAdded! &&
+                              _model.imgAdded!)) {
+                            return;
+                          }
+
                           await currentUserReference!
                               .update(createUsersRecordData(
                             phoneNumber: _model.phnoTextController.text,
@@ -426,7 +469,9 @@ class _UpdateInfoWidgetState extends State<UpdateInfoWidget> {
                             }
                           }
                         },
-                        text: 'Save Profile',
+                        text: FFLocalizations.of(context).getText(
+                          'ft9029ep' /* Save Profile */,
+                        ),
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 56.0,

@@ -82,7 +82,9 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Home',
+                    FFLocalizations.of(context).getText(
+                      '7va3aeif' /* Home */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'HomeB'
@@ -100,7 +102,7 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('bContracts');
+                context.pushNamed('bNotifications');
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -108,16 +110,18 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                 children: [
                   Icon(
                     Icons.notifications_active,
-                    color: FFAppState().page == 'bContract'
+                    color: FFAppState().page == 'bNotifications'
                         ? const Color(0xFF023961)
                         : FlutterFlowTheme.of(context).secondaryText,
                     size: 24.0,
                   ),
                   Text(
-                    'Notifications',
+                    FFLocalizations.of(context).getText(
+                      'a8vn02th' /* Notifications */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
-                          color: FFAppState().page == 'bContract'
+                          color: FFAppState().page == 'bNotifications'
                               ? const Color(0xFF023961)
                               : FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
@@ -154,7 +158,9 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                     ),
                   ),
                   Text(
-                    'My Contracts',
+                    FFLocalizations.of(context).getText(
+                      'c53b68f7' /* My Contracts */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'createContract'
@@ -187,7 +193,9 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Payment',
+                    FFLocalizations.of(context).getText(
+                      'zfxbcbyz' /* Payment */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'bPayment'
@@ -205,7 +213,7 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
               hoverColor: Colors.transparent,
               highlightColor: Colors.transparent,
               onTap: () async {
-                context.pushNamed('bProfile');
+                context.pushNamed('bprofile');
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -219,7 +227,9 @@ class _CustomNavBarBWidgetState extends State<CustomNavBarBWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Profile',
+                    FFLocalizations.of(context).getText(
+                      'mt9w021n' /* Profile */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'bProfile'

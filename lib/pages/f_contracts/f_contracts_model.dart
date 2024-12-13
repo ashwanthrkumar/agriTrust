@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
 import 'f_contracts_widget.dart' show FContractsWidget;
@@ -8,8 +9,14 @@ class FContractsModel extends FlutterFlowModel<FContractsWidget> {
 
   String? page;
 
+  bool? isActionStarted;
+
+  String? downloadLink;
+
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (generateContractPDF)] action in IconButton widget.
+  ApiCallResponse? apiResult1yy;
   // Model for customNavBar component.
   late CustomNavBarModel customNavBarModel;
 

@@ -70,7 +70,7 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
-            backgroundColor: FlutterFlowTheme.of(context).tertiary,
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
             body: Center(
               child: SizedBox(
                 width: 50.0,
@@ -87,10 +87,13 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
         final createContractCropsRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: FlutterFlowTheme.of(context).tertiary,
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
             body: SafeArea(
               top: true,
               child: Stack(
@@ -114,11 +117,15 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                   Align(
                                     alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Text(
-                                      'Contract Creation',
+                                      FFLocalizations.of(context).getText(
+                                        'z5mhrcaq' /* Contract Creation */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Lexend',
+                                            color: Colors.white,
+                                            fontSize: 21.0,
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -138,6 +145,8 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Align(
                                         alignment:
@@ -147,7 +156,9 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Lexend',
+                                                color: Colors.white,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -160,7 +171,9 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Lexend',
+                                                color: Colors.white,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -173,7 +186,9 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Lexend',
+                                                color: Colors.white,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -186,110 +201,105 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Lexend',
+                                                color: Colors.white,
+                                                fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 10.0, 0.0, 0.0),
-                                        child: SizedBox(
-                                          width: 200.0,
-                                          child: SizedBox(
-                                            width: 200.0,
-                                            child: TextFormField(
-                                              controller: _model
-                                                  .negotiationTextController,
-                                              focusNode:
-                                                  _model.negotiationFocusNode,
-                                              autofocus: false,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                isDense: true,
-                                                labelText: 'Negotiable Price',
-                                                labelStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                hintStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: const BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                focusedErrorBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .error,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                filled: true,
-                                                fillColor: Colors.white,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              keyboardType: const TextInputType
-                                                  .numberWithOptions(
-                                                  decimal: true),
-                                              cursorColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              validator: _model
-                                                  .negotiationTextControllerValidator
-                                                  .asValidator(context),
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.6,
+                                        child: TextFormField(
+                                          controller:
+                                              _model.negotiationTextController,
+                                          focusNode:
+                                              _model.negotiationFocusNode,
+                                          autofocus: false,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            isDense: true,
+                                            labelText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'ke98khl1' /* Negotiable Price */,
                                             ),
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Inter',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            hintStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMedium
+                                                    .override(
+                                                      fontFamily: 'Inter',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: const BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .error,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                            ),
+                                            filled: true,
+                                            fillColor: Colors.white,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                letterSpacing: 0.0,
+                                              ),
+                                          keyboardType: const TextInputType
+                                              .numberWithOptions(decimal: true),
+                                          cursorColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryText,
+                                          validator: _model
+                                              .negotiationTextControllerValidator
+                                              .asValidator(context),
                                         ),
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Container(
                                             width: 141.0,
@@ -298,14 +308,21 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
                                             ),
                                             child: Align(
                                               alignment: const AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 valueOrDefault<String>(
-                                                  dateTimeFormat("MMMMEEEEd",
-                                                      _model.datePicked),
+                                                  dateTimeFormat(
+                                                    "MMMMEEEEd",
+                                                    _model.datePicked,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  ),
                                                   'Pick Date for Delivery',
                                                 ),
                                                 style:
@@ -339,7 +356,10 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                                 });
                                               }
                                             },
-                                            text: 'Pick Date',
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'v2p4st1q' /* Pick Date */,
+                                            ),
                                             options: FFButtonOptions(
                                               height: 40.0,
                                               padding: const EdgeInsetsDirectional
@@ -356,6 +376,7 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                                       .override(
                                                         fontFamily: 'Lexend',
                                                         color: Colors.white,
+                                                        fontSize: 12.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 0.0,
@@ -363,7 +384,7 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                           ),
-                                        ],
+                                        ].divide(const SizedBox(width: 5.0)),
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -381,7 +402,11 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
-                                              labelText: 'Payment Terms',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                '5o9mg5gr' /* Payment Terms */,
+                                              ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -471,7 +496,11 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
-                                              labelText: 'Quality Terms',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'k9v3xsau' /* Quality Terms */,
+                                              ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -562,7 +591,11 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
-                                              labelText: 'Notes (if any)',
+                                              labelText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                'rvnfyj5l' /* Notes (if any) */,
+                                              ),
                                               labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
@@ -637,7 +670,7 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    ].divide(const SizedBox(height: 8.0)),
                                   ),
                                 ],
                               ),
@@ -731,7 +764,9 @@ class _CreateContractWidgetState extends State<CreateContractWidget> {
                                   });
                                 }
                               },
-                              text: 'Submit Contract',
+                              text: FFLocalizations.of(context).getText(
+                                'zx943qcq' /* Submit Contract */,
+                              ),
                               options: FFButtonOptions(
                                 height: 40.0,
                                 padding: const EdgeInsetsDirectional.fromSTEB(

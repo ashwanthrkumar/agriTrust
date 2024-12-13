@@ -81,7 +81,9 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Home',
+                    FFLocalizations.of(context).getText(
+                      'iyraqa5n' /* Home */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'Home'
@@ -113,7 +115,9 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Contracts',
+                    FFLocalizations.of(context).getText(
+                      'nrpp09du' /* Contracts */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'Contracts'
@@ -153,7 +157,9 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                     ),
                   ),
                   Text(
-                    'Add Crop',
+                    FFLocalizations.of(context).getText(
+                      'ziqwoax9' /* Add Crop */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'Addcrop'
@@ -185,7 +191,9 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Payment',
+                    FFLocalizations.of(context).getText(
+                      'zfxbcbyz' /* Payment */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'Payment'
@@ -217,7 +225,9 @@ class _CustomNavBarWidgetState extends State<CustomNavBarWidget> {
                     size: 24.0,
                   ),
                   Text(
-                    'Profile',
+                    FFLocalizations.of(context).getText(
+                      'mt9w021n' /* Profile */,
+                    ),
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'Inter',
                           color: FFAppState().page == 'Profile'

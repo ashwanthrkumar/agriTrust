@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/pages/custom_nav_bar/custom_nav_bar_widget.dart';
 import 'add_crop_widget.dart' show AddCropWidget;
 import 'package:flutter/material.dart';
@@ -29,9 +28,6 @@ class AddCropModel extends FlutterFlowModel<AddCropWidget> {
   TextEditingController? priceperunitTextController;
   String? Function(BuildContext, String?)? priceperunitTextControllerValidator;
   DateTime? datePicked;
-  // State field(s) for status widget.
-  String? statusValue;
-  FormFieldController<String>? statusValueController;
   // State field(s) for description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;

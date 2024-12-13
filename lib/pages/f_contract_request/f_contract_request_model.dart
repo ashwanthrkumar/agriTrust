@@ -4,6 +4,10 @@ import 'f_contract_request_widget.dart' show FContractRequestWidget;
 import 'package:flutter/material.dart';
 
 class FContractRequestModel extends FlutterFlowModel<FContractRequestWidget> {
+  ///  Local state fields for this page.
+
+  String? buyerId;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for customNavBar component.

@@ -80,7 +80,10 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
         final editCropDetailsCropsRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).tertiary,
@@ -102,7 +105,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                'Crop Type: ',
+                                FFLocalizations.of(context).getText(
+                                  '7exl06zd' /* Crop Type:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -215,7 +220,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                                     _model.ctdataChange = false;
                                     safeSetState(() {});
                                   },
-                                  text: 'Save',
+                                  text: FFLocalizations.of(context).getText(
+                                    'xtbp726f' /* Save */,
+                                  ),
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -245,7 +252,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                'Quantity:',
+                                FFLocalizations.of(context).getText(
+                                  '1bua18nz' /* Quantity: */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -360,7 +369,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                                     _model.ctdataChange = false;
                                     safeSetState(() {});
                                   },
-                                  text: 'Save',
+                                  text: FFLocalizations.of(context).getText(
+                                    'h48vtku5' /* Save */,
+                                  ),
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -390,7 +401,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                'Price per Unit: ',
+                                FFLocalizations.of(context).getText(
+                                  'bw24j2w6' /* Price per Unit:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -506,7 +519,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                                     _model.ctdataChange = false;
                                     safeSetState(() {});
                                   },
-                                  text: 'Save',
+                                  text: FFLocalizations.of(context).getText(
+                                    'tgdwi4n8' /* Save */,
+                                  ),
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -536,7 +551,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Text(
-                                'Status:',
+                                FFLocalizations.of(context).getText(
+                                  'cg36e68s' /* Status: */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -649,7 +666,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                                     _model.ctdataChange = false;
                                     safeSetState(() {});
                                   },
-                                  text: 'Save',
+                                  text: FFLocalizations.of(context).getText(
+                                    'khf22jgo' /* Save */,
+                                  ),
                                   options: FFButtonOptions(
                                     height: 40.0,
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -721,7 +740,9 @@ class _EditCropDetailsWidgetState extends State<EditCropDetailsWidget> {
                                 );
                               }
                             },
-                            text: 'Delete Crop',
+                            text: FFLocalizations.of(context).getText(
+                              '847aouxf' /* Delete Crop */,
+                            ),
                             options: FFButtonOptions(
                               height: 40.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
