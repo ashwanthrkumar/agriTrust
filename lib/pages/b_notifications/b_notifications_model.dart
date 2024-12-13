@@ -1,9 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/custom_nav_bar_b/custom_nav_bar_b_widget.dart';
-import 'b_profile_widget.dart' show BProfileWidget;
+import 'b_notifications_widget.dart' show BNotificationsWidget;
 import 'package:flutter/material.dart';
 
-class BProfileModel extends FlutterFlowModel<BProfileWidget> {
+class BNotificationsModel extends FlutterFlowModel<BNotificationsWidget> {
+  ///  Local state fields for this page.
+
+  String? page;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for customNavBarB component.

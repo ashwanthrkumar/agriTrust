@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -145,11 +147,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const BPaymentWidget(),
         ),
         FFRoute(
-          name: 'bProfile',
-          path: '/bProfile',
-          builder: (context, params) => const BProfileWidget(),
-        ),
-        FFRoute(
           name: 'cropDetails',
           path: '/cropDetails',
           builder: (context, params) => CropDetailsWidget(
@@ -196,6 +193,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'updateInfo',
           path: '/updateInfo',
           builder: (context, params) => const UpdateInfoWidget(),
+        ),
+        FFRoute(
+          name: 'bprofile',
+          path: '/bprofile',
+          builder: (context, params) => const BprofileWidget(),
+        ),
+        FFRoute(
+          name: 'fchats',
+          path: '/fchats',
+          builder: (context, params) => FchatsWidget(
+            buyerId: params.getParam(
+              'buyerId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'bNotifications',
+          path: '/bNotifications',
+          builder: (context, params) => const BNotificationsWidget(),
+        ),
+        FFRoute(
+          name: 'fpro',
+          path: '/fpro',
+          builder: (context, params) => const FproWidget(),
+        ),
+        FFRoute(
+          name: 'aadharPage',
+          path: '/aadharPage',
+          builder: (context, params) => const AadharPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -390,7 +417,7 @@ class FFRoute {
                     ),
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

@@ -7,6 +7,12 @@ class UpdateInfoModel extends FlutterFlowModel<UpdateInfoWidget> {
 
   bool? isActionStarted;
 
+  bool? phnoAdded;
+
+  bool? addressAdded;
+
+  bool? imgAdded;
+
   ///  State fields for stateful widgets in this page.
 
   bool isDataUploading = false;

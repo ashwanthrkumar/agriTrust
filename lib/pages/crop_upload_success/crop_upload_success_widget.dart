@@ -80,7 +80,9 @@ class _CropUploadSuccessWidgetState extends State<CropUploadSuccessWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Crop Uploaded',
+                      FFLocalizations.of(context).getText(
+                        'pqskgwg5' /* Crop Uploaded */,
+                      ),
                       style: FlutterFlowTheme.of(context).titleMedium.override(
                             fontFamily: 'Lexend',
                             color: FlutterFlowTheme.of(context).success,
@@ -88,7 +90,9 @@ class _CropUploadSuccessWidgetState extends State<CropUploadSuccessWidget> {
                           ),
                     ),
                     Text(
-                      'Your crop data has been successfully uploaded',
+                      FFLocalizations.of(context).getText(
+                        'jn35cnqy' /* Your crop data has been succes... */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodySmall.override(
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).secondaryText,

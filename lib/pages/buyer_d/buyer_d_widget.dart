@@ -98,7 +98,10 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
         List<CropsRecord> buyerDCropsRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: const Color(0xFF023961),
@@ -124,7 +127,9 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 20.0, 0.0, 0.0),
                                     child: Text(
-                                      'Hi!!',
+                                      FFLocalizations.of(context).getText(
+                                        '8js579va' /* Hi!! */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -159,52 +164,76 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 20.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () => FocusScope.of(context)
-                                                .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: const LogoutWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
-                                    },
-                                    child: Container(
-                                      width: 40.0,
-                                      height: 40.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(24.0),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
-                                        child: Text(
-                                          'A',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Lexend',
-                                                fontSize: 20.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
+                                  child: AuthUserStreamWidget(
+                                    builder: (context) => InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: const LogoutWidget(),
                                               ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 40.0,
+                                        height: 40.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: Image.network(
+                                              currentUserPhoto == ''
+                                                  ? 'https://img.freepik.com/free-vector/digital-technology-background-with-abstract-wave-border_53876-117508.jpg'
+                                                  : currentUserPhoto,
+                                            ).image,
+                                          ),
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                        ),
+                                        child: Visibility(
+                                          visible: currentUserPhoto == '',
+                                          child: Align(
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'paizoczo' /* A */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Lexend',
+                                                        fontSize: 20.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -228,46 +257,58 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                   .secondaryBackground,
                               borderRadius: BorderRadius.circular(20.0),
                             ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
-                                  child: Padding(
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('bContracts');
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'u174zl7a' /* Active Contracts */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Lexend',
+                                              fontSize: 20.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
-                                        20.0, 0.0, 0.0, 0.0),
+                                        0.0, 0.0, 20.0, 0.0),
                                     child: Text(
-                                      'Active Contracts',
+                                      valueOrDefault<String>(
+                                        _model.activeContract?.toString(),
+                                        'loading..',
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Lexend',
-                                            fontSize: 20.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
+                                            fontWeight: FontWeight.w900,
                                           ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 20.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      _model.activeContract?.toString(),
-                                      'loading..',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Lexend',
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w900,
-                                        ),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -278,7 +319,9 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'List of crops available',
+                            FFLocalizations.of(context).getText(
+                              'sqh6wvnf' /* List of crops available */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -297,7 +340,9 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            'search for crops below',
+                            FFLocalizations.of(context).getText(
+                              'n5bucabu' /* search for crops below */,
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -434,7 +479,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                       fontFamily: 'Inter',
                                                       letterSpacing: 0.0,
                                                     ),
-                                            hintText: 'Search',
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'okbuhj07' /* Search */,
+                                            ),
                                             hintStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
@@ -537,7 +586,9 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Search results',
+                              FFLocalizations.of(context).getText(
+                                '4iep4c55' /* Search results */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -658,7 +709,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                         MainAxisSize.max,
                                                     children: [
                                                       Text(
-                                                        'Available: ',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '9s8f60ql' /* Available:  */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -693,7 +748,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          'kg',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'uf21emle' /* kg */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -727,7 +786,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                                 ),
                                                       ),
                                                       Text(
-                                                        ' / per kg',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'kbwccjcl' /*  / per kg */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -766,7 +829,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                       }.withoutNulls,
                                                     );
                                                   },
-                                                  text: 'details',
+                                                  text: FFLocalizations.of(
+                                                          context)
+                                                      .getText(
+                                                    'syoosc4f' /* details */,
+                                                  ),
                                                   options: FFButtonOptions(
                                                     height: 40.0,
                                                     padding:
@@ -907,7 +974,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                           MainAxisSize.max,
                                                       children: [
                                                         Text(
-                                                          'Available: ',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '0vyubv79' /* Available:  */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -940,7 +1011,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                                       0.0,
                                                                       0.0),
                                                           child: Text(
-                                                            'kg',
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '0ixnzbe5' /* kg */,
+                                                            ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -973,7 +1048,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                               ),
                                                         ),
                                                         Text(
-                                                          ' / per kg',
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'zidbloqh' /*  / per kg */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1011,7 +1090,11 @@ class _BuyerDWidgetState extends State<BuyerDWidget> {
                                                         }.withoutNulls,
                                                       );
                                                     },
-                                                    text: 'details',
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'w7i37x9x' /* details */,
+                                                    ),
                                                     options: FFButtonOptions(
                                                       height: 40.0,
                                                       padding:

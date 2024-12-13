@@ -3,30 +3,29 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/custom_nav_bar_b/custom_nav_bar_b_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:provider/provider.dart';
-import 'b_profile_model.dart';
-export 'b_profile_model.dart';
+import 'b_notifications_model.dart';
+export 'b_notifications_model.dart';
 
-class BProfileWidget extends StatefulWidget {
-  const BProfileWidget({super.key});
+class BNotificationsWidget extends StatefulWidget {
+  const BNotificationsWidget({super.key});
 
   @override
-  State<BProfileWidget> createState() => _BProfileWidgetState();
+  State<BNotificationsWidget> createState() => _BNotificationsWidgetState();
 }
 
-class _BProfileWidgetState extends State<BProfileWidget> {
-  late BProfileModel _model;
+class _BNotificationsWidgetState extends State<BNotificationsWidget> {
+  late BNotificationsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BProfileModel());
+    _model = createModel(context, () => BNotificationsModel());
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().page = 'bProfile';
+      _model.page = 'bNotifications';
       safeSetState(() {});
     });
   }
@@ -40,13 +39,14 @@ class _BProfileWidgetState extends State<BProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).secondary,
         body: SafeArea(
           top: true,
           child: Stack(

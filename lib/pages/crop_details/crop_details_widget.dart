@@ -63,7 +63,10 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
         final cropDetailsCropsRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+          onTap: () {
+            FocusScope.of(context).unfocus();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondary,
@@ -129,7 +132,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                                   ),
                                 ),
                                 Text(
-                                  'Crop Details',
+                                  FFLocalizations.of(context).getText(
+                                    'ip5eqlyl' /* Crop Details */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -160,7 +165,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Crop Type: ',
+                                FFLocalizations.of(context).getText(
+                                  'hpg6a60z' /* Crop Type:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -185,7 +192,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Available stock: ',
+                                FFLocalizations.of(context).getText(
+                                  'ispt4sfv' /* Available stock:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -210,7 +219,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Price per Unit: ',
+                                FFLocalizations.of(context).getText(
+                                  'ril8zy06' /* Price per Unit:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -235,7 +246,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Text(
-                                'Description: ',
+                                FFLocalizations.of(context).getText(
+                                  'maez5x7n' /* Description:  */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -246,34 +259,6 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                               ),
                               Text(
                                 cropDetailsCropsRecord.description,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Text(
-                                'Phone No.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                valueOrDefault<String>(
-                                  columnUsersRecord?.phoneNumber,
-                                  'loading...',
-                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -298,7 +283,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                                     path: _model.farmerphno!,
                                   ));
                                 },
-                                text: 'Contact Farmer',
+                                text: FFLocalizations.of(context).getText(
+                                  'ilj7vhcq' /* Contact Farmer */,
+                                ),
                                 options: FFButtonOptions(
                                   height: 40.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -330,7 +317,9 @@ class _CropDetailsWidgetState extends State<CropDetailsWidget> {
                                     }.withoutNulls,
                                   );
                                 },
-                                text: 'Create Contract',
+                                text: FFLocalizations.of(context).getText(
+                                  'w7nnfe6p' /* Create Contract */,
+                                ),
                                 options: FFButtonOptions(
                                   height: 40.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(

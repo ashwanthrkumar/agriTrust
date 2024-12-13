@@ -43,7 +43,10 @@ class _FPaymentWidgetState extends State<FPaymentWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -53,7 +56,9 @@ class _FPaymentWidgetState extends State<FPaymentWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Text(
-                'Payments',
+                FFLocalizations.of(context).getText(
+                  'lmhkzu1s' /* Payments */,
+                ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Inter',
                       letterSpacing: 0.0,

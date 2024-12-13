@@ -143,8 +143,12 @@ class ContractsRecord extends FirestoreRecord {
     _confidentialityClause = snapshotData['confidentialityClause'] as String?;
     _notes = snapshotData['notes'] as String?;
     _pricePerUnit = castToType<int>(snapshotData['pricePerUnit']);
-    _farmerSign = deserializeEnum<Sign>(snapshotData['farmerSign']);
-    _buyerSign = deserializeEnum<Sign>(snapshotData['buyerSign']);
+    _farmerSign = snapshotData['farmerSign'] is Sign
+        ? snapshotData['farmerSign']
+        : deserializeEnum<Sign>(snapshotData['farmerSign']);
+    _buyerSign = snapshotData['buyerSign'] is Sign
+        ? snapshotData['buyerSign']
+        : deserializeEnum<Sign>(snapshotData['buyerSign']);
     _farmerName = snapshotData['farmerName'] as String?;
     _buyerName = snapshotData['buyerName'] as String?;
     _farmerAddress = snapshotData['farmerAddress'] as String?;

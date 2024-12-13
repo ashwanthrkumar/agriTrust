@@ -72,7 +72,9 @@ class _LogoutWidgetState extends State<LogoutWidget>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Account Information',
+                FFLocalizations.of(context).getText(
+                  'ifyxj494' /* Account Information */,
+                ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Lexend',
                       letterSpacing: 0.0,
@@ -110,7 +112,9 @@ class _LogoutWidgetState extends State<LogoutWidget>
 
                     context.goNamedAuth('startPage', context.mounted);
                   },
-                  text: 'Log Out',
+                  text: FFLocalizations.of(context).getText(
+                    'y2c3am06' /* Log Out */,
+                  ),
                   icon: Icon(
                     Icons.logout,
                     color: FlutterFlowTheme.of(context).info,

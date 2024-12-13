@@ -65,7 +65,9 @@ class _NoCropFoundBWidgetState extends State<NoCropFoundBWidget> {
               size: 48.0,
             ),
             Text(
-              'No Crops Listed',
+              FFLocalizations.of(context).getText(
+                'j5mesxko' /* No Crops Listed */,
+              ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     fontFamily: 'Lexend',

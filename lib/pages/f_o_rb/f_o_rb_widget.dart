@@ -34,7 +34,10 @@ class _FORbWidgetState extends State<FORbWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
@@ -56,7 +59,9 @@ class _FORbWidgetState extends State<FORbWidget> {
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: Text(
-                  'Your reliable partner in achieving sustainable farming success. Let’s work together to build a stable, profitable future in agriculture!',
+                  FFLocalizations.of(context).getText(
+                    'bb68hndd' /* Your reliable partner in achie... */,
+                  ),
                   textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Comfortaa',
@@ -85,7 +90,9 @@ class _FORbWidgetState extends State<FORbWidget> {
                     FFAppState().userId = currentUserUid;
                     safeSetState(() {});
                   },
-                  text: 'Let\'s go',
+                  text: FFLocalizations.of(context).getText(
+                    'w49sy4zz' /* Let's go */,
+                  ),
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 40.0,
